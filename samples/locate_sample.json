@@ -1,0 +1,132 @@
+[
+    {
+        "BSSID": "14:b7:f8:73:cf:9d",
+        "RSSI": -87,
+        "SSID": "The Force  5G"
+    },
+    {
+        "BSSID": "40:70:9:8f:61:75",
+        "RSSI": -84,
+        "SSID": "apt4-5G"
+    },
+    {
+        "BSSID": "8c:3b:ad:d3:20:23",
+        "RSSI": -91,
+        "SSID": "Soju Squad 5.0"
+    },
+    {
+        "BSSID": "e2:98:61:fc:ed:c5",
+        "RSSI": -87,
+        "SSID": "MOTOD35C-GUEST"
+    },
+    {
+        "BSSID": "e0:98:61:fc:ec:c4",
+        "RSSI": -87,
+        "SSID": "MOTOD35C-5G"
+    },
+    {
+        "BSSID": "4:a1:51:9e:64:18",
+        "RSSI": -70,
+        "SSID": "love GRND -5G"
+    },
+    {
+        "BSSID": "dc:ef:9:a1:62:d1",
+        "RSSI": -68,
+        "SSID": "NETGEAR86-5G"
+    },
+    {
+        "BSSID": "90:1a:ca:5c:5f:b5",
+        "RSSI": -91,
+        "SSID": "REZAIEH-5G"
+    },
+    {
+        "BSSID": "f4:f2:6d:d8:d3:4a",
+        "RSSI": -92,
+        "SSID": "Google Access Point"
+    },
+    {
+        "BSSID": "14:b7:f8:f2:24:4a",
+        "RSSI": -88,
+        "SSID": "ArshiLA-5G"
+    },
+    {
+        "BSSID": "54:65:de:76:e3:e5",
+        "RSSI": -50,
+        "SSID": "Apt#3-5G"
+    },
+    {
+        "BSSID": "14:b7:f8:6d:7d:4d",
+        "RSSI": -86,
+        "SSID": "ADNERB21"
+    },
+    {
+        "BSSID": "4c:ed:fb:8f:af:48",
+        "RSSI": -84,
+        "SSID": "midoriya izuku"
+    },
+    {
+        "BSSID": "dc:ef:9:a1:62:d2",
+        "RSSI": -58,
+        "SSID": "NETGEAR86"
+    },
+    {
+        "BSSID": "54:65:de:74:25:d0",
+        "RSSI": -69,
+        "SSID": "DG1670AD2"
+    },
+    {
+        "BSSID": "40:70:9:8f:61:70",
+        "RSSI": -79,
+        "SSID": "apt4"
+    },
+    {
+        "BSSID": "e:2:8e:9d:da:12",
+        "RSSI": -79,
+        "SSID": "CHS"
+    },
+    {
+        "BSSID": "54:65:de:76:e3:e0",
+        "RSSI": -42,
+        "SSID": "Apt#3"
+    },
+    {
+        "BSSID": "34:6b:46:42:b:3a",
+        "RSSI": -88,
+        "SSID": "MySpectrumWiFi34-2G"
+    },
+    {
+        "BSSID": "56:c7:bf:b7:23:cc",
+        "RSSI": -80,
+        "SSID": "BarryPlace_Guest"
+    },
+    {
+        "BSSID": "50:c7:bf:b7:23:cc",
+        "RSSI": -80,
+        "SSID": "BarryPlace"
+    },
+    {
+        "BSSID": "f4:f2:6d:d8:c6:54",
+        "RSSI": -83,
+        "SSID": "Google Access Point"
+    },
+    {
+        "BSSID": "14:b7:f8:73:cf:9c",
+        "RSSI": -67,
+        "SSID": "The Force"
+    },
+    {
+        "BSSID": "14:b7:f8:f2:24:49",
+        "RSSI": -75,
+        "SSID": "ArshiLA"
+    },
+    {
+        "BSSID": "4:a1:51:9e:64:16",
+        "RSSI": -55,
+        "SSID": "love GRND"
+    },
+    {
+        "BSSID": "26:5a:4:3d:86:2e",
+        "RSSI": -76,
+        "SSID": "DELL-PC 8201"
+    }
+]

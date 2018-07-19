@@ -1,0 +1,110 @@
+{
+    "access_points": [
+        {
+            "BSSID": "e0:98:61:fc:ec:c3",
+            "RSSI": -81,
+            "SSID": "MOTOD35C"
+        },
+        {
+            "BSSID": "40:70:9:8f:61:75",
+            "RSSI": -91,
+            "SSID": "apt4-5G"
+        },
+        {
+            "BSSID": "4:a1:51:9e:64:18",
+            "RSSI": -68,
+            "SSID": "love GRND -5G"
+        },
+        {
+            "BSSID": "dc:ef:9:a1:62:d1",
+            "RSSI": -80,
+            "SSID": "NETGEAR86-5G"
+        },
+        {
+            "BSSID": "8:2:8e:9d:da:15",
+            "RSSI": -83,
+            "SSID": "CHS"
+        },
+        {
+            "BSSID": "40:70:9:5a:97:e5",
+            "RSSI": -88,
+            "SSID": "shellsup 5g"
+        },
+        {
+            "BSSID": "14:b7:f8:f2:24:4a",
+            "RSSI": -92,
+            "SSID": "ArshiLA-5G"
+        },
+        {
+            "BSSID": "f4:f2:6d:d8:d3:4a",
+            "RSSI": -90,
+            "SSID": "Google Access Point"
+        },
+        {
+            "BSSID": "54:65:de:76:e3:e5",
+            "RSSI": -55,
+            "SSID": "Apt#3-5G"
+        },
+        {
+            "BSSID": "d8:f:99:ae:b7:b4",
+            "RSSI": -62,
+            "SSID": "Boomer Sooner"
+        },
+        {
+            "BSSID": "14:91:82:68:23:93",
+            "RSSI": -82,
+            "SSID": "Porque-Fi"
+        },
+        {
+            "BSSID": "dc:ef:9:a1:62:d2",
+            "RSSI": -73,
+            "SSID": "NETGEAR86"
+        },
+        {
+            "BSSID": "54:65:de:74:25:d0",
+            "RSSI": -76,
+            "SSID": "DG1670AD2"
+        },
+        {
+            "BSSID": "54:65:de:76:e3:e0",
+            "RSSI": -49,
+            "SSID": "Apt#3"
+        },
+        {
+            "BSSID": "56:c7:bf:b7:23:cc",
+            "RSSI": -84,
+            "SSID": "BarryPlace_Guest"
+        },
+        {
+            "BSSID": "b0:b9:8a:48:f6:be",
+            "RSSI": -82,
+            "SSID": "0nly1z"
+        },
+        {
+            "BSSID": "14:b7:f8:73:cf:9c",
+            "RSSI": -78,
+            "SSID": "The Force"
+        },
+        {
+            "BSSID": "b4:2a:e:8e:f:b6",
+            "RSSI": -84,
+            "SSID": "Porque-Fi2"
+        },
+        {
+            "BSSID": "c0:ff:d4:9a:1e:aa",
+            "RSSI": -84,
+            "SSID": "NETGEAR96"
+        },
+        {
+            "BSSID": "c0:3f:e:72:22:b6",
+            "RSSI": -76,
+            "SSID": "ArshiLA"
+        },
+        {
+            "BSSID": "4:a1:51:9e:64:16",
+            "RSSI": -48,
+            "SSID": "love GRND"
+        }
+    ],
+    "loc_ID": "myroom"
+}
