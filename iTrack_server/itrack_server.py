@@ -66,7 +66,20 @@ def rec_room_prof():
 
     # db.visititems(print_attrs)
 
+    print("RECORED! loc %s"%(data["loc_ID"]))
+
     return ('', 204)
+
+
+@app.route('/rec_new_room_prof', methods=['POST'])
+def rec_new_room_prof():
+    data = request.get_json()
+    db = get_db()
+
+    if data["loc_ID"] in db:
+        del db[data["loc_ID"]]
+        print ("DELETED! loc %s"%(data["loc_ID"]))
+    return rec_room_prof()
 
 
 def gaussian_similarity(loc, data):
