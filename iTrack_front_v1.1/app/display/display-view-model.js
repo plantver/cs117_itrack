@@ -2,8 +2,8 @@ const observableModule = require("data/observable");
 
 const SelectedPageService = require("../shared/selected-page-service");
 
-function FeaturedViewModel() {
-    SelectedPageService.getInstance().updateSelectedPage("Featured");
+function SearchViewModel() {
+    SelectedPageService.getInstance().updateSelectedPage("Display");
 
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
@@ -12,4 +12,4 @@ function FeaturedViewModel() {
     return viewModel;
 }
 
-module.exports = FeaturedViewModel;
+module.exports = SearchViewModel;

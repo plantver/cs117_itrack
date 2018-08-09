@@ -1,10 +1,10 @@
 const app = require("application");
 
-const FeaturedViewModel = require("./featured-view-model");
+const BrowseViewModel = require("./measure-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new FeaturedViewModel();
+    page.bindingContext = new BrowseViewModel();
 }
 
 function onDrawerButtonTap(args) {

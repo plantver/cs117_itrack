@@ -6,7 +6,7 @@ function SelectedPageService() {
     }
 
     // Observable selectedPage source
-    this._selectedPageSource = new BehaviorSubject("Home");
+    this._selectedPageSource = new BehaviorSubject("Locate");
 
     // Observable selectedPage stream
     this.selectedPage$ = this._selectedPageSource.asObservable();

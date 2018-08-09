@@ -18,22 +18,22 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
             <ScrollView row="1">
                 <StackLayout class="sidedrawer-content">
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Home' ? ' selected': '') }}"
-                        route="home/home-page" title="Home" tap="onNavigationItemTap">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Locate' ? ' selected': '') }}"
+                        route="Locate/locate-page" title="Locate" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf015;" class="fa" />
-                        <Label row="0" col="1" text="Home" class="p-r-10" />
+                        <Label row="0" col="1" text="Locate" class="p-r-10" />
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Browse' ? ' selected': '') }}"
-                        route="browse/browse-page" title="Browse" tap="onNavigationItemTap">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Measure' ? ' selected': '') }}"
+                        route="measure/measure-page" title="Measure" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf1ea;" class="fa" />
-                        <Label row="0" col="1" text="Browse" class="p-r-10" />
+                        <Label row="0" col="1" text="Measure" class="p-r-10" />
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Search' ? ' selected': '') }}"
-                        route="search/search-page" title="Search" tap="onNavigationItemTap">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Display' ? ' selected': '') }}"
+                        route="display/display-page" title="Display" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf002;" class="fa" />
-                        <Label row="0" col="1" text="Search" class="p-r-10" />
+                        <Label row="0" col="1" text="Display" class="p-r-10" />
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Featured' ? ' selected': '') }}"
@@ -55,6 +55,6 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
     </nsDrawer:RadSideDrawer.drawerContent>
 
     <nsDrawer:RadSideDrawer.mainContent>
-        <Frame defaultPage="home/home-page"></Frame>
+        <Frame defaultPage="locate/locate-page"></Frame>
     </nsDrawer:RadSideDrawer.mainContent>
 </nsDrawer:RadSideDrawer>

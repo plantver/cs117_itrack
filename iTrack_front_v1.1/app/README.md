@@ -48,9 +48,9 @@ RadSideDrawer has the following component structure:
 
 The template has the following blank pages:
 
-- `/home/home-page.js`
-- `/browse/browse-page.js`
-- `/search/search-page.js`
+- `/locate/locate-page.js`
+- `/measure/measure-page.js`
+- `/display/display-page.js`
 - `/featured/featured-page.js`
 - `/settings/settings-page.js`
 
