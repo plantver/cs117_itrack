@@ -19,7 +19,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
             <ScrollView row="1">
                 <StackLayout class="sidedrawer-content">
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Locate' ? ' selected': '') }}"
-                        route="Locate/locate-page" title="Locate" tap="onNavigationItemTap">
+                        route="locate/locate-page" title="Locate" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf015;" class="fa" />
                         <Label row="0" col="1" text="Locate" class="p-r-10" />
                     </GridLayout>
