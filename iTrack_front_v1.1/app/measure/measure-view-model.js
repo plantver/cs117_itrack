@@ -2,7 +2,7 @@ const observableModule = require("data/observable");
 
 const SelectedPageService = require("../shared/selected-page-service");
 
-function BrowseViewModel() {
+function MeasureViewModel() {
     SelectedPageService.getInstance().updateSelectedPage("Measure");
 
     const viewModel = observableModule.fromObject({
@@ -12,4 +12,4 @@ function BrowseViewModel() {
     return viewModel;
 }
 
-module.exports = BrowseViewModel;
+module.exports = MeasureViewModel;

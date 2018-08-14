@@ -1,15 +1,19 @@
 const app = require("application");
 
-const BrowseViewModel = require("./measure-view-model");
+const MeasureViewModel = require("./measure-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new BrowseViewModel();
+    page.bindingContext = new MeasureViewModel();
 }
 
 function onDrawerButtonTap(args) {
     const sideDrawer = app.getRootView();
     sideDrawer.showDrawer();
+}
+
+function onLocateTap(args){
+    var results = android.net.getScanResults();
 }
 
 exports.onNavigatingTo = onNavigatingTo;

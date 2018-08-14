@@ -1,10 +1,10 @@
 const app = require("application");
 
-const HomeViewModel = require("./locate-view-model");
+const LocateViewModel = require("./locate-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new HomeViewModel();
+    page.bindingContext = new LocateeViewModel();
 }
 
 function onDrawerButtonTap(args) {
