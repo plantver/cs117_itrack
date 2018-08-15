@@ -2,8 +2,6 @@ const app = require("application");
 
 const HomeViewModel = require("./locate-view-model");
 
-var permissions = require('nativescript-permissions');
-
 function onNavigatingTo(args) {
     const page = args.object;
 
@@ -28,19 +26,14 @@ function onNavigatingTo(args) {
 
     var rs = wifi_service.startScan();
 
-    /* permissions.requestPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION, "I need these permissions because I'm cool")
-        .then(function() {
-            console.log("Woo Hoo, I have the power!");
-        })
-        .catch(function() {
-            console.log("Uh oh, no permissions - plan B time!");
-        }); */
-
     app.android.registerBroadcastReceiver(
             android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
             , function onReceiveCallback(context, intent) {    
-                var tp = wifi_service.getScanResults();
+                let tp = java.util.List;
+                tp = wifi_service.getScanResults();
+                
                 console.log(tp);
+                
             })
 
 
