@@ -8,7 +8,7 @@ function LocateViewModel() {
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
     });
-
+    console.log("LocateViewModel from locate-view-model.js");
     return viewModel;
 }
 
