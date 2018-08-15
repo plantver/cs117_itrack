@@ -4,7 +4,7 @@ const LocateViewModel = require("./locate-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new LocateeViewModel();
+    page.bindingContext = new LocateViewModel();
 }
 
 function onDrawerButtonTap(args) {
