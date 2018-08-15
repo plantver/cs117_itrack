@@ -1,10 +1,10 @@
 const app = require("application");
 
-const SearchViewModel = require("./display-view-model");
+const DisplayViewModel = require("./display-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new SearchViewModel();
+    page.bindingContext = new DisplayViewModel();
 }
 
 function onDrawerButtonTap(args) {

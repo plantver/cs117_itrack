@@ -23,6 +23,6 @@
 
     <GridLayout class="page-content">
         <Label class="page-icon fa" text="&#xf002;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+        <Label class="page-placeholder" text="{{ signalData[0].wifi }}"></Label>
     </GridLayout>
 </Page>
