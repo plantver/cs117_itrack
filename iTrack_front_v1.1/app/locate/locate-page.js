@@ -32,8 +32,10 @@ function onNavigatingTo(args) {
                 let tp = java.util.List;
                 tp = wifi_service.getScanResults();
                 
-                console.log(tp);
-                
+                console.log(tp.toArray()[1].SSID);
+                for (var key in tp){
+                    console.log(typeof key, key);
+                }
             })
 
 
