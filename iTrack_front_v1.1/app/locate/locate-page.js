@@ -39,16 +39,16 @@ function onNavigatingTo(args) {
                             "RSSI": e.level};
                     res.push(info);
                 }
-                console.log(JSON.stringify(res));
+                console.log('http://13.57.182.179:5001/locate?json=' + JSON.stringify(res));
                 httpModule.request({
                     url: 'http://13.57.182.179:5001/locate',
-                    method: 'GET',
+                    method: 'POST',
                     headers: {"Content-Type": "application/json"},
-                    json: JSON.stringify(res)
+                    content: JSON.stringify(res)
                 }).then((response) => {
-                    console.log(response);
-                    const result = response.content.toJSON();
-                    console.log(result);
+                    console.log(response.content);
+                    //const result = response.content.toJSON();
+                    //console.log(result);
                 }, (e) => {console.log(e)});
             })
 
