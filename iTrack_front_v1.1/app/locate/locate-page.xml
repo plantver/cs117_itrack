@@ -24,6 +24,6 @@
 
     <GridLayout class="page-content">
         <Label class="page-icon fa" text="&#xf015;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+        <Button text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
     </GridLayout>
 </Page>

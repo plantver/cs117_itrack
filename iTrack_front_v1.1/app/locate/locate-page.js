@@ -2,6 +2,10 @@ const app = require("application");
 const httpModule = require("http");
 const HomeViewModel = require("./locate-view-model");
 
+var context = android.content.Context;
+var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
+wifi_service.setWifiEnabled(true);
+
 function onNavigatingTo(args) {
     const page = args.object;
 
@@ -20,11 +24,6 @@ function onNavigatingTo(args) {
                         ACCESS_COARSE_LOCATION_PERMISSION_REQUEST_CODE);
     }
 
-    var context = android.content.Context;
-    var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
-    wifi_service.setWifiEnabled(true);  
-
-    var rs = wifi_service.startScan();
     app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
     app.android.registerBroadcastReceiver(
             android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
@@ -40,13 +39,14 @@ function onNavigatingTo(args) {
                             "RSSI": e.level};
                     res.push(info);
                 }
-                console.log("t1");
+                console.log(JSON.stringify(res));
                 httpModule.request({
-                    url: 'http://131.179.60.253:5000/locate',
+                    url: 'http://13.57.182.179:5001/locate',
                     method: 'GET',
                     headers: {"Content-Type": "application/json"},
-                    content: JSON.stringify(res)
+                    json: JSON.stringify(res)
                 }).then((response) => {
+                    console.log(response);
                     const result = response.content.toJSON();
                     console.log(result);
                 }, (e) => {console.log(e)});
@@ -61,5 +61,12 @@ function onDrawerButtonTap(args) {
     sideDrawer.showDrawer();
 }
 
+function onLocateTap(args) {
+    const button = args.object  
+    var rs = wifi_service.startScan();
+    console.log("tap");
+}
+
+exports.onLocateTap = onLocateTap;
 exports.onNavigatingTo = onNavigatingTo;
 exports.onDrawerButtonTap = onDrawerButtonTap;

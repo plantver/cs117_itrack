@@ -2,6 +2,10 @@ const app = require("application");
 
 const BrowseViewModel = require("./measure-view-model");
 
+var context = android.content.Context;
+var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
+wifi_service.setWifiEnabled(true);
+
 function onNavigatingTo(args) {
     const page = args.object;
 
@@ -18,11 +22,7 @@ function onNavigatingTo(args) {
                         app.android.foregroundActivity,
                         [android.Manifest.permission.ACCESS_COARSE_LOCATION],
                         ACCESS_COARSE_LOCATION_PERMISSION_REQUEST_CODE);
-    }
-
-    var context = android.content.Context;
-    var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
-    wifi_service.setWifiEnabled(true);  
+    }  
 
     var rs = wifi_service.startScan();
     app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
