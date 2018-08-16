@@ -25,7 +25,7 @@ function onNavigatingTo(args) {
     wifi_service.setWifiEnabled(true);  
 
     var rs = wifi_service.startScan();
-
+    app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
     app.android.registerBroadcastReceiver(
             android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
             , function onReceiveCallback(context, intent) {    

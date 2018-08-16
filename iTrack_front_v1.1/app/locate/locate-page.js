@@ -1,5 +1,5 @@
 const app = require("application");
-
+const httpModule = require("http");
 const HomeViewModel = require("./locate-view-model");
 
 function onNavigatingTo(args) {
@@ -25,17 +25,31 @@ function onNavigatingTo(args) {
     wifi_service.setWifiEnabled(true);  
 
     var rs = wifi_service.startScan();
-
+    app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
     app.android.registerBroadcastReceiver(
             android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
             , function onReceiveCallback(context, intent) {    
                 let tp = java.util.List;
                 tp = wifi_service.getScanResults();
-                
-                console.log(tp.toArray()[1].SSID);
-                for (var key in tp){
-                    console.log(typeof key, key);
+                tp = tp.toArray()
+                var res = []
+                for (var i = 0; i < tp.length; i++){
+                    var e = tp[i]
+                    info = {"SSID": e.SSID,
+                            "BSSID": e.BSSID,
+                            "RSSI": e.level};
+                    res.push(info);
                 }
+                console.log("t1");
+                httpModule.request({
+                    url: 'http://131.179.60.253:5000/locate',
+                    method: 'GET',
+                    headers: {"Content-Type": "application/json"},
+                    content: JSON.stringify(res)
+                }).then((response) => {
+                    const result = response.content.toJSON();
+                    console.log(result);
+                }, (e) => {console.log(e)});
             })
 
 
