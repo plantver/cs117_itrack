@@ -42,21 +42,7 @@ function onNavigatingTo(args) {
                     res.push(info);
                 }
                 console.log(res)
-                console.log('http://13.57.182.179:5001/locate');
-                httpModule.request({
-                    url: 'http://13.57.182.179:5001/locate',
-                    method: 'POST',
-                    headers: {"Content-Type": "application/json"},
-                    content: JSON.stringify(res)
-                }).then((response) => {
-                    console.log(response.content);
-                    var res = response.content.toJSON();
-                    if (response.statusCode == 200){
-                        page.bindingContext.loc = 
-                            {room: res.location.toString(), 
-                            conf: res.relative_probability.toString()}
-                    }
-                }, (e) => {console.log(e)});
+                page.bindingContext.measures.push(res);
             })
 
     page.bindingContext = new BrowseViewModel();
@@ -70,13 +56,28 @@ function onDrawerButtonTap(args) {
 function onMeasureTap(args)
 {
     const button = args.object
+    console.log(args.object.parent);
     var rs = wifi_service.startScan();
 }
 
 function onUploadTap(args)
 {
     const button = args.object
-    var rs = wifi_service.startScan();
+    console.log(args.object);
+    /* httpModule.request({
+        url: 'http://13.57.182.179:5001/locate',
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        content: JSON.stringify(res)
+    }).then((response) => {
+        console.log(response.content);
+        var res = response.content.toJSON();
+        if (response.statusCode == 200){
+            page.bindingContext.loc = 
+                {room: res.location.toString(), 
+                conf: res.relative_probability.toString()}
+        }
+    }, (e) => {console.log(e)}); */
 }
 
 function onReturnPress(args)
@@ -84,5 +85,8 @@ function onReturnPress(args)
     console.log(args)
     var roomName = args.object
 }
+
+exports.onMeasureTap = onMeasureTap;
+exports.onUploadTap = onUploadTap;
 exports.onNavigatingTo = onNavigatingTo;
 exports.onDrawerButtonTap = onDrawerButtonTap;

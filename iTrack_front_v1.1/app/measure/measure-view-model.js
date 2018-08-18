@@ -7,6 +7,7 @@ function BrowseViewModel() {
 
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
+        measures: []
     });
 
     return viewModel;
