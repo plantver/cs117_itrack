@@ -39,7 +39,8 @@ function onNavigatingTo(args) {
                             "RSSI": e.level};
                     res.push(info);
                 }
-                console.log('http://13.57.182.179:5001/locate?json=' + JSON.stringify(res));
+                console.log(res)
+                console.log('http://13.57.182.179:5001/locate');
                 httpModule.request({
                     url: 'http://13.57.182.179:5001/locate',
                     method: 'POST',
@@ -47,8 +48,12 @@ function onNavigatingTo(args) {
                     content: JSON.stringify(res)
                 }).then((response) => {
                     console.log(response.content);
-                    //const result = response.content.toJSON();
-                    //console.log(result);
+                    console.log(response.statusCode);
+                    if (response.statusCode == 200){
+                        page.bindingContext.loc = 
+                            {room: response.content.location, 
+                            conf: response.content.relative_probability}
+                    }
                 }, (e) => {console.log(e)});
             })
 
