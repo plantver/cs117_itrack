@@ -48,11 +48,11 @@ function onNavigatingTo(args) {
                     content: JSON.stringify(res)
                 }).then((response) => {
                     console.log(response.content);
-                    console.log(response.statusCode);
+                    var res = response.content.toJSON();
                     if (response.statusCode == 200){
                         page.bindingContext.loc = 
-                            {room: response.content.location, 
-                            conf: response.content.relative_probability}
+                            {room: res.location.toString(), 
+                            conf: res.relative_probability.toString()}
                     }
                 }, (e) => {console.log(e)});
             })
