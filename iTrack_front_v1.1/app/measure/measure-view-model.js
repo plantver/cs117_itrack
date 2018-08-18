@@ -9,7 +9,8 @@ function BrowseViewModel() {
         /* Add your view model properties here */
         measurements: [
             { roomName: "Room Name", datetime: "Date and Time"}
-        ]
+        ],
+        measures: []
     });
 
     return viewModel;
