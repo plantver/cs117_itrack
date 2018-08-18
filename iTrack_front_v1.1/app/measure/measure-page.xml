@@ -22,8 +22,11 @@
         <Label class="action-bar-title" text="Measure"></Label>
     </ActionBar>
 
-    <GridLayout class="page-content">
-        <Label class="page-icon fa" text="&#xf1ea;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-    </GridLayout>
+    <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
+			<!--<TextField dock="top" width="80%" text="textRoomName" hint="MUST ENTER CURRENT ROOM NAME FIRST (ex. BOEL2444) ..." 
+                        keyboardType="url" returnKeyType="done" returnPress="onReturnPress"
+                        class="input input-border"/> -->
+            <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
+			<Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
+		</DockLayout>
 </Page>
