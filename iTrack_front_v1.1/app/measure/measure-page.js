@@ -58,7 +58,6 @@ function onDrawerButtonTap(args) {
 function onMeasureTap(args)
 {
     const button = args.object
-    console.log(args.object.parent);
     var rs = wifi_service.startScan();
 }
 
@@ -67,15 +66,17 @@ function onUploadTap(args)
     const button = args.object
     console.log(page.bindingContext.measures);
     page.bindingContext.measures.forEach((m, i) => {
+        upload_content = {access_points: m, loc_ID: page.bindingContext.roomNames[i]};
+        console.log(JSON.stringify(upload_content));
         httpModule.request({
             url: 'http://13.57.182.179:5001/rec_room_prof',
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            content: JSON.stringify({"access_points": m, "loc_ID": page.bindingContext.roomNames[i]})
+            content: JSON.stringify(upload_content)
         }).then((response) => {
-            console.log(response);
-            if (response.statusCode == 200){
-                
+            console.log(response, response.statusCode);
+            if (response.statusCode == 204){
+                console.log("upload succeess");
             }
         }, (e) => {console.log(e)});
     });
