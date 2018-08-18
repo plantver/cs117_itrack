@@ -29,6 +29,10 @@
             <FormattedString>
                 <Span text="Location: " />
                 <Span text="{{ loc.room }}" />
+            </FormattedString>
+        </TextView>
+        <TextView editable="false">
+            <FormattedString>
                 <Span text="Confidence: " />
                 <Span text="{{ loc.conf }}" />
             </FormattedString>
