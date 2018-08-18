@@ -23,7 +23,10 @@
     </ActionBar>
 
     <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
-			<Button text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
-			<Button text="Upload" tap="onUploadTap" class="btn btn-primary btn-active">
+			<!--<TextField dock="top" width="80%" text="textRoomName" hint="MUST ENTER CURRENT ROOM NAME FIRST (ex. BOEL2444) ..." 
+                        keyboardType="url" returnKeyType="done" returnPress="onReturnPress"
+                        class="input input-border"/> -->
+            <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
+			<Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
 		</DockLayout>
 </Page>
