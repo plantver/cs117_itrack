@@ -7,7 +7,6 @@ var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
 wifi_service.setWifiEnabled(true);
 
 function onNavigatingTo(args) {
-    const page = args.object;
 
     const page = args.object;
 
@@ -26,14 +25,7 @@ function onNavigatingTo(args) {
                         ACCESS_COARSE_LOCATION_PERMISSION_REQUEST_CODE);
     }
 
-    var rs = wifi_service.startScan();
-    app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
-    app.android.registerBroadcastReceiver(
-            android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
-            , function onReceiveCallback(context, intent) {    
-                var tp = wifi_service.getScanResults();
-                console.log(tp);
-            })
+    
     app.android.unregisterBroadcastReceiver(android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
     app.android.registerBroadcastReceiver(
             android.net.wifi.WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
