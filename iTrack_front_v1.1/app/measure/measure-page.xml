@@ -28,13 +28,19 @@
                         class="input input-border"/>
             
             <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
-            <ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
+            <TextView dock="top" editable="false">
+                <FormattedString>
+                    <Span text="Measuring for room: " />
+                    <Span text="{{ roomName }}" fontWeight="Bold" />
+                </FormattedString>
+            </TextView>
+            <!-- <ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
 				<ListView.itemTemplate>
 					<FlexboxLayout flexDirection="row" class="list-group-item">
 						<Label text="{{ name }}             {{ datetime }}" class="list-group-item-heading" verticalAlignment="left" style="width: 60%" />
 					</FlexboxLayout>
 				</ListView.itemTemplate>
-			</ListView>
+			</ListView> -->
             <Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
 		</DockLayout>
 </Page>

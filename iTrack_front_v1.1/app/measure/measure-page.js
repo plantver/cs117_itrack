@@ -1,14 +1,15 @@
 const app = require("application");
-
+const httpModule = require("http");
 const BrowseViewModel = require("./measure-view-model");
 
+var page = null;
 var context = android.content.Context;
 var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
 wifi_service.setWifiEnabled(true);
 
 function onNavigatingTo(args) {
 
-    const page = args.object;
+    page = args.object;
 
     var hasPermission = android.os.Build.VERSION.SDK_INT < 23;
     console.log("hasPermission: ", hasPermission)
@@ -43,6 +44,7 @@ function onNavigatingTo(args) {
                 }
                 console.log(res)
                 page.bindingContext.measures.push(res);
+                page.bindingContext.roomNames.push(page.bindingContext.roomName);
             })
 
     page.bindingContext = new BrowseViewModel();
@@ -63,29 +65,31 @@ function onMeasureTap(args)
 function onUploadTap(args)
 {
     const button = args.object
-    console.log(args.object);
-    /* httpModule.request({
-        url: 'http://13.57.182.179:5001/locate',
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        content: JSON.stringify(res)
-    }).then((response) => {
-        console.log(response.content);
-        var res = response.content.toJSON();
-        if (response.statusCode == 200){
-            page.bindingContext.loc = 
-                {room: res.location.toString(), 
-                conf: res.relative_probability.toString()}
-        }
-    }, (e) => {console.log(e)}); */
+    console.log(page.bindingContext.measures);
+    page.bindingContext.measures.forEach((m, i) => {
+        httpModule.request({
+            url: 'http://13.57.182.179:5001/rec_room_prof',
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            content: JSON.stringify({"access_points": m, "loc_ID": page.bindingContext.roomNames[i]})
+        }).then((response) => {
+            console.log(response);
+            if (response.statusCode == 200){
+                
+            }
+        }, (e) => {console.log(e)});
+    });
+    page.bindingContext.measures = [];
+    page.bindingContext.roomNames = [];
 }
 
 function onReturnPress(args)
 {
-    console.log(args)
-    var roomName = args.object
+    console.log(args.object.text);
+    page.bindingContext.roomName = args.object.text;
 }
 
+exports.onReturnPress = onReturnPress;
 exports.onMeasureTap = onMeasureTap;
 exports.onUploadTap = onUploadTap;
 exports.onNavigatingTo = onNavigatingTo;
