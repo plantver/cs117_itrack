@@ -29,7 +29,7 @@
             <FormattedString>
                 <Span text="Location: " />
                 <Span text="{{ loc.room }}" />
-                <Span text="\nConfidence: " />
+                <Span text="Confidence: " />
                 <Span text="{{ loc.conf }}" />
             </FormattedString>
         </TextView>
