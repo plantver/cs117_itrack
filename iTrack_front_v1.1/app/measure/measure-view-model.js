@@ -7,11 +7,10 @@ function BrowseViewModel() {
 
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
-        measurements: [
-            { roomName: "Room Name", datetime: "Date and Time"}
-        ],
-        measures: [],
-        textRoomName: ""
+        roomName: "", //current room being measured
+        measures: [], //AP measures
+        roomNames: [] //corresponding rooms for the measurements
+
     });
 
     return viewModel;
