@@ -3,6 +3,9 @@ from pprint import pprint
 import numpy as np
 import h5py
 import argparse
+from datetime import datetime, timedelta
+from collections import defaultdict
+
 
 app = Flask(__name__)
 
@@ -104,13 +107,38 @@ def make_loc_json_response(response):
     )
 
 
+def get_popdb():
+    if "_popdb" not in globals():
+        globals()["_popdb"] = defaultdict(list)
+    return globals()["_popdb"]
+
+
+def rec_pop(loc_ID):
+    popdb = get_popdb()
+    popdb[loc_ID].append(datetime.now())
+    print("recored pop", loc_ID, popdb[loc_ID])
+
+
 @app.route('/popular', methods=['GET', 'POST'])
 def popular():
-    pass
+    popdb = get_popdb()
+    print(popdb)
+
+    d = timedelta(minutes=10)
+    l_pop = list()
+    for loc_ID, l_t in popdb.items():
+        print(filter(lambda x: datetime.now() - x < d, l_t))
+        l_pop.append({
+            "location": loc_ID, 
+            "popularity": len(list(filter(lambda x: datetime.now() - x < d, l_t)))
+            })
+
+    l_pop = sorted(l_pop, key=lambda x: x["popularity"])
+    return make_loc_json_response(l_pop)
 
 
 @app.route('/locate_top4', methods=['GET', 'POST'])
-def locate():
+def locate_top4():
     data = request.get_json()
     db = get_db()
 
@@ -127,7 +155,10 @@ def locate():
     tot_p = sum(l_probs)
     if tot_p > 0:
         l_probs = np.array(l_probs)/tot_p
-	i_top4 = sorted(l_probs, reversed=True)
+        i_top4 = np.argsort(l_probs)[::-1]
+
+        rec_pop(l_loc_ID[i_top4[0]])
+
         return make_loc_json_response([{
             "location": l_loc_ID[i],
             "relative_probability": l_probs[i]
@@ -158,6 +189,9 @@ def locate():
     if tot_p > 0:
         l_probs = np.array(l_probs)/tot_p
         i = np.argmax(l_probs)
+
+        rec_pop(l_loc_ID[i])
+
         return make_loc_json_response({
             "location": l_loc_ID[i],
             "relative_probability": l_probs[i]
