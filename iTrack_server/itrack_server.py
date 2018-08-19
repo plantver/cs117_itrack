@@ -104,11 +104,47 @@ def make_loc_json_response(response):
     )
 
 
-@app.route('/locate', methods=['GET'])
+@app.route('/popular', methods=['GET', 'POST'])
+def popular():
+    pass
+
+
+@app.route('/locate_top4', methods=['GET', 'POST'])
 def locate():
     data = request.get_json()
     db = get_db()
 
+    print("I got locate top4")
+    l_loc_ID = list()
+    l_probs = list()
+
+    for loc_ID, loc in db.items():
+        p = gaussian_similarity(loc, data)
+        if p > 0:
+            l_loc_ID.append(loc_ID)
+            l_probs.append(p)
+
+    tot_p = sum(l_probs)
+    if tot_p > 0:
+        l_probs = np.array(l_probs)/tot_p
+	i_top4 = sorted(l_probs, reversed=True)
+        return make_loc_json_response([{
+            "location": l_loc_ID[i],
+            "relative_probability": l_probs[i]
+            } for i in i_top4])
+    else:
+        return make_loc_json_response([{
+            "location": "N/F",
+            "relative_probability": 0
+            }])
+
+
+@app.route('/locate', methods=['GET', 'POST'])
+def locate():
+    data = request.get_json()
+    db = get_db()
+
+    print("I got locate")
     l_loc_ID = list()
     l_probs = list()
 
@@ -144,6 +180,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--profh5', dest='profh5', 
                        help='simple hdf5 database containing room profiles')
+    parser.add_argument('--host', dest='host', default="127.0.0.1") 
+    parser.add_argument('--port', dest='port') 
     args = parser.parse_args()
 
-    app.run()
+    app.run(host=args.host, port=args.port, threaded=True)
