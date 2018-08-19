@@ -41,7 +41,7 @@
                         <!--<Label text="{{ datetime }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />-->
 					</FlexboxLayout>
 				</ListView.itemTemplate>
-			</ListView> -->
+			</ListView>
             <Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
 		</DockLayout>
 </Page>
