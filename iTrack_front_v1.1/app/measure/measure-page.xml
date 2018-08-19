@@ -37,7 +37,7 @@
             <ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
 				<ListView.itemTemplate>
 					<FlexboxLayout flexDirection="row" class="list-group-item">
-						<Label text="{{ roomName }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
+						<Label text="{{ roomNames }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
                         <!--<Label text="{{ datetime }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />-->
 					</FlexboxLayout>
 				</ListView.itemTemplate>
