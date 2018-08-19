@@ -83,9 +83,11 @@ function onUploadTap(args)
 function onReturnPress(args)
 {
     console.log(args)
-    var roomName = args.object
+    var roomName = args.object;
+    console.log("the room is: ",roomName.text);
 }
 
+exports.onReturnPress = onReturnPress;
 exports.onMeasureTap = onMeasureTap;
 exports.onUploadTap = onUploadTap;
 exports.onNavigatingTo = onNavigatingTo;

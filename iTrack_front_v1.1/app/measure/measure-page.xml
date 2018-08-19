@@ -24,14 +24,15 @@
 
     <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
 			<TextField dock="top" width="95%" text="{{ textRoomName }}" hint="ENTER CURRENT ROOM NAME (ex. BOEL2444) ..." 
-                        keyboardType="url" returnKeyType="done" returnPress="onReturnPress"
+                        returnKeyType="Done" returnPress="onReturnPress"
                         class="input input-border"/>
             
             <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
             <ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
 				<ListView.itemTemplate>
 					<FlexboxLayout flexDirection="row" class="list-group-item">
-						<Label text="{{ name }}             {{ datetime }}" class="list-group-item-heading" verticalAlignment="left" style="width: 60%" />
+						<Label text="{{ measurements.name }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
+                        <Label text="{{ measurements.datetime }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
 					</FlexboxLayout>
 				</ListView.itemTemplate>
 			</ListView>
