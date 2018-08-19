@@ -46,7 +46,7 @@ function onNavigatingTo(args) {
                 page.bindingContext.measures.push(res);
                 page.bindingContext.roomNames.push(page.bindingContext.roomName);
                 page.bindingContext.formatted_display.push(
-                    "datetimeplaceholder   -   " + page.bindingContext.roomName
+                    "datetimeplaceholder  -  " + page.bindingContext.roomName
                 );
                 //listView.refresh(); //how does this even work
             });

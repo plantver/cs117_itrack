@@ -11,10 +11,11 @@ function BrowseViewModel() {
         roomName: "", //current room being measured
         measures:  [], //AP measures
         roomNames: [], //corresponding rooms for the measurements
-        formatted_display: ["t1"] //formatted string for ListView
-
+        //formatted_display: ["t1"] //formatted string for ListView
+        formatted_display: []
     });
 
+    viewModel.set("formatted_display", new ObservableArray (["Date  -  Room"]));
     //viewModel.measures = new ObservableArray([]);
     //viewModel.roomNames = new ObservableArray([]);
     return viewModel;
