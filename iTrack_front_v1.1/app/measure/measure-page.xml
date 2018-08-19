@@ -34,14 +34,16 @@
                     <Span text="{{ roomName }}" fontWeight="Bold" />
                 </FormattedString>
             </TextView>
-            <ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
+            <ListView row="15" items="{{ formatted_display }}" class="list-group">
+            </ListView>
+            <!--<ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
 				<ListView.itemTemplate>
 					<FlexboxLayout flexDirection="row" class="list-group-item">
-						<Label text="{{ roomNames }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
-                        <!--<Label text="{{ datetime }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />-->
+						<Label text="{{ test_list }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
+                        <!--<Label text="{{ datetime }}" class="list-group-item-heading" verticalAlignment="center" style="width: 40%" />
 					</FlexboxLayout>
 				</ListView.itemTemplate>
-			</ListView>
+			</ListView>-->
             <Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
 		</DockLayout>
 </Page>

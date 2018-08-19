@@ -10,7 +10,8 @@ function BrowseViewModel() {
         /* Add your view model properties here */
         roomName: "", //current room being measured
         measures:  [], //AP measures
-        roomNames: [] //corresponding rooms for the measurements
+        roomNames: [], //corresponding rooms for the measurements
+        formatted_display: ["t1"] //formatted string for ListView
 
     });
 

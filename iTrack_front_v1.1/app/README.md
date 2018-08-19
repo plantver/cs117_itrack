@@ -51,7 +51,7 @@ The template has the following blank pages:
 - `/locate/locate-page.js`
 - `/measure/measure-page.js`
 - `/display/display-page.js`
-- `/featured/featured-page.js`
+- `/popular/popular-page.js`
 - `/settings/settings-page.js`
 
 ### Styling

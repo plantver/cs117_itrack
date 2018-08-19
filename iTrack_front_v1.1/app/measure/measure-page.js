@@ -45,6 +45,10 @@ function onNavigatingTo(args) {
                 console.log(res);
                 page.bindingContext.measures.push(res);
                 page.bindingContext.roomNames.push(page.bindingContext.roomName);
+                page.bindingContext.formatted_display.push(
+                    "datetimeplaceholder   -   " + page.bindingContext.roomName
+                );
+                //listView.refresh(); //how does this even work
             });
 
     page.bindingContext = new BrowseViewModel();
@@ -74,9 +78,9 @@ function onUploadTap(args)
             headers: {"Content-Type": "application/json"},
             content: JSON.stringify(upload_content)
         }).then((response) => {
-            console.log(response, response.statusCode);
+            //console.log(response, response.statusCode);
             if (response.statusCode == 204){
-                console.log("upload succeess");
+                console.log("upload success");
             }
         }, (e) => {console.log(e);});
     });

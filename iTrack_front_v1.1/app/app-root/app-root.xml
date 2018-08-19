@@ -36,10 +36,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Display" class="p-r-10" />
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Featured' ? ' selected': '') }}"
-                        route="featured/featured-page" title="Featured" tap="onNavigationItemTap">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Popular' ? ' selected': '') }}"
+                        route="popular/popular-page" title="Popular" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf005;" class="fa" />
-                        <Label row="0" col="1" text="Featured" class="p-r-10" />
+                        <Label row="0" col="1" text="Popular" class="p-r-10" />
                     </GridLayout>
 
                     <StackLayout class="hr-light"></StackLayout>
