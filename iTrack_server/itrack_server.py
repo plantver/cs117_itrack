@@ -133,7 +133,7 @@ def popular():
             "popularity": len(list(filter(lambda x: datetime.now() - x < d, l_t)))
             })
 
-    l_pop = sorted(l_pop, key=lambda x: x["popularity"])
+    l_pop = sorted(l_pop, key=lambda x: x["popularity"], reverse=True)
     return make_loc_json_response(l_pop)
 
 
