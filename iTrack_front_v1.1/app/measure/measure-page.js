@@ -1,8 +1,10 @@
 const app = require("application");
 const httpModule = require("http");
 const BrowseViewModel = require("./measure-view-model");
-const viewModule = require("ui/core/view");
+//const ActivityIndicator = require("tns-core-modules/ui/activity-indicator").ActivityIndicator;
+const Observable = require("tns-core-modules/data/observable").Observable;//new Observable();
 
+var vm = new BrowseViewModel();
 var page = null;
 var context = android.content.Context;
 var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
@@ -11,8 +13,11 @@ var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
 wifi_service.setWifiEnabled(true);
 
 function onNavigatingTo(args) {
+    //vm = new BrowseViewModel();
 
+    vm.set("isLoading", true);
     page = args.object;
+    
 
     var hasPermission = android.os.Build.VERSION.SDK_INT < 23;
     console.log("hasPermission: ", hasPermission);
@@ -56,8 +61,8 @@ function onNavigatingTo(args) {
                 );
                 //args.object.refresh(); //how does this even work
             });
-
-    page.bindingContext = new BrowseViewModel();
+    vm.set("isLoading",false);
+    page.bindingContext = vm; //new BrowseViewModel();
 }
 
 function onDrawerButtonTap(args) {
@@ -67,8 +72,10 @@ function onDrawerButtonTap(args) {
 
 function onMeasureTap(args)
 {
+    vm.set("isLoading",true);
     const button = args.object;
     var rs = wifi_service.startScan();
+    vm.set("isLoading",false);
 }
 
 function onUploadTap(args)
