@@ -8,7 +8,8 @@ function PopularViewModel() {
 
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
-        formatted_display: []
+        formatted_display: [],
+        isLoading: false
     });
 
     viewModel.set("formatted_display", new ObservableArray ([]));

@@ -21,9 +21,11 @@
         </ActionItem>
         <Label class="action-bar-title" text="Popular"></Label>
     </ActionBar>
-
-    <StackLayout class="page-content">
-        <Button text="Find Popular Spots" tap="onPopularTap" class="btn btn-primary btn-active" />
-        <ListView row="4" items="{{ formatted_display }}" class="list-group" />
-    </StackLayout>
+    <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
+    <!--<StackLayout class="page-content">-->
+        <Button dock="bottom" text="Find Popular Spots" tap="onPopularTap" class="btn btn-primary btn-active" />
+        <ActivityIndicator dock="bottom" busy="{{ isLoading }}" width="75" height="75" />  
+        <ListView dock="top" row="4" items="{{ formatted_display }}" class="list-group" />
+    <!-- </StackLayout> -->
+    </DockLayout>
 </Page>

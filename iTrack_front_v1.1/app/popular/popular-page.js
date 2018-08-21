@@ -3,11 +3,11 @@ const httpModule = require("http");
 const PopularViewModel = require("./popular-view-model");
 
 var page = null;
+var vm = new PopularViewModel();
 
 function onNavigatingTo(args) {
     page = args.object;
-
-    page.bindingContext = new PopularViewModel();
+    page.bindingContext = vm; //new PopularViewModel();
 }
 
 function onDrawerButtonTap(args) {
@@ -16,6 +16,7 @@ function onDrawerButtonTap(args) {
 }
 
 function onPopularTap(args) {
+    vm.set("isLoading", true);
     const button = args.object;
     console.log("tap");
     httpModule.request({
@@ -31,9 +32,10 @@ function onPopularTap(args) {
                 page.bindingContext.formatted_display.push(
                     "Location: " + e.location + "   Popularity: " + e.popularity);
             });
+            vm.set("isLoading", false);
         }
     }, (e) => {console.log(e);});
-
+    vm.set("isLoading", false);
 }
 
 exports.onPopularTap = onPopularTap;
