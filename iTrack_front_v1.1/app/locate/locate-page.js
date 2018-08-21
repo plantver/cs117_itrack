@@ -40,19 +40,21 @@ function onNavigatingTo(args) {
                     res.push(info);
                 }
                 console.log(res);
-                console.log('http://13.57.182.179:5001/locate');
                 httpModule.request({
-                    url: 'http://13.57.182.179:5001/locate',
+                    url: 'http://13.57.182.179:5001/locate_top4',
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
                     content: JSON.stringify(res)
                 }).then((response) => {
-                    console.log(response.content);
-                    var res = response.content.toJSON();
+                    console.log(response.content, response.statusCode);
+                    var res = response.content;
                     if (response.statusCode == 200){
-                        page.bindingContext.loc = 
-                            {room: res.location.toString(), 
-                            conf: res.relative_probability.toString()};
+                        page.bindingContext.loc = res.toJSON();
+                        page.bindingContext.formatted_display.splice(0);
+                        res.toJSON().forEach((e) => {
+                            page.bindingContext.formatted_display.push(
+                                "Room: " + e.location + "   Confidence: " + e.relative_probability);
+                        });
                     }
                 }, (e) => {console.log(e);});
             });

@@ -25,17 +25,6 @@
     <StackLayout class="page-content">
         <Label class="page-icon fa" text="&#xf015;"></Label>
         <Button text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
-        <TextView editable="false">
-            <FormattedString>
-                <Span text="Location: " />
-                <Span text="{{ loc.room }}" />
-            </FormattedString>
-        </TextView>
-        <TextView editable="false">
-            <FormattedString>
-                <Span text="Confidence: " />
-                <Span text="{{ loc.conf }}" />
-            </FormattedString>
-        </TextView>
+        <ListView row="4" items="{{ formatted_display }}" class="list-group" />
     </StackLayout>
 </Page>
