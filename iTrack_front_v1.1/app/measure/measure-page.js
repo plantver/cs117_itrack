@@ -59,6 +59,7 @@ function onNavigatingTo(args) {
                 page.bindingContext.formatted_display.push(
                     formatted_time + " at "+ page.bindingContext.roomName
                 );
+                vm.set("isLoading",false);
                 //args.object.refresh(); //how does this even work
             });
     vm.set("isLoading",false);
@@ -73,14 +74,14 @@ function onDrawerButtonTap(args) {
 function onMeasureTap(args)
 {
     vm.set("isLoading",true);
-    const button = args.object;
+    //const button = args.object;
     var rs = wifi_service.startScan();
-    vm.set("isLoading",false);
+    
 }
 
 function onUploadTap(args)
 {
-    const button = args.object;
+    //const button = args.object;
     console.log(page.bindingContext.measures);
     page.bindingContext.measures.forEach((m, i) => {
         upload_content = {access_points: m, loc_ID: page.bindingContext.roomNames[i]};

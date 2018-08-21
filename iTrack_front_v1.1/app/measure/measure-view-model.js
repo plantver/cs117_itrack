@@ -12,7 +12,8 @@ function BrowseViewModel() {
         measures:  [], //AP measures
         roomNames: [], //corresponding rooms for the measurements
         //formatted_display: ["t1"] //formatted string for ListView
-        formatted_display: []
+        formatted_display: [],
+        isLoading: false
     });
 
     viewModel.set("formatted_display", new ObservableArray ([]));
