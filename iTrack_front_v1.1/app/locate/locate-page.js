@@ -53,7 +53,7 @@ function onNavigatingTo(args) {
                         page.bindingContext.formatted_display.splice(0);
                         res.toJSON().forEach((e) => {
                             page.bindingContext.formatted_display.push(
-                                "Room: " + e.location + "   Confidence: " + e.relative_probability);
+                                "Location: " + e.location + "   Confidence: " + e.relative_probability);
                         });
                     }
                 }, (e) => {console.log(e);});
