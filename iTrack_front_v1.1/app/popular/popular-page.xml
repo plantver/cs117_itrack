@@ -22,8 +22,8 @@
         <Label class="action-bar-title" text="Popular"></Label>
     </ActionBar>
 
-    <GridLayout class="page-content">
-        <Label class="page-icon fa" text="&#xf005;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-    </GridLayout>
+    <StackLayout class="page-content">
+        <Button text="Find Popular Spots" tap="onPopularTap" class="btn btn-primary btn-active" />
+        <ListView row="4" items="{{ formatted_display }}" class="list-group" />
+    </StackLayout>
 </Page>
