@@ -127,10 +127,12 @@ def popular():
     d = timedelta(minutes=10)
     l_pop = list()
     for loc_ID, l_t in popdb.items():
-        print(filter(lambda x: datetime.now() - x < d, l_t))
+        pop = len(list(filter(lambda x: datetime.now() - x < d, l_t)))
+        if pop == 0:
+            continue
         l_pop.append({
             "location": loc_ID, 
-            "popularity": len(list(filter(lambda x: datetime.now() - x < d, l_t)))
+            "popularity": pop
             })
 
     l_pop = sorted(l_pop, key=lambda x: x["popularity"], reverse=True)
