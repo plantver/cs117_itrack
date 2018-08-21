@@ -50,9 +50,9 @@ function onNavigatingTo(args) {
                 page.bindingContext.roomNames.push(page.bindingContext.roomName);
                 var time_now = new Date();
                 //console.log(time_now.getMonth() +"/"+time_now.getDate() +"/"+time_now.getFullYear() +"  "+time_now.getHours() + ":"+time_now.getMinutes());
-                var formatted_time = time_now.getMonth() +"/"+time_now.getDate() +"/"+time_now.getFullYear() +"  "+time_now.getHours() + ":"+time_now.getMinutes();
+                var formatted_time = time_now.getMonth() +"/"+time_now.getDate() +"/"+time_now.getFullYear() +"  "+time_now.getHours() + ":"+("00" + time_now.getMinutes()).substr(-2,2);
                 page.bindingContext.formatted_display.push(
-                    formatted_time + page.bindingContext.roomName
+                    formatted_time + " at "+ page.bindingContext.roomName
                 );
                 //args.object.refresh(); //how does this even work
             });
