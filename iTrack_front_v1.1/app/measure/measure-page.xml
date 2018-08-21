@@ -34,7 +34,7 @@
                     <Span text="{{ roomName }}" fontWeight="Bold" />
                 </FormattedString>
             </TextView>
-            <ListView row="15" items="{{ formatted_display }}" class="list-group">
+            <ListView dock="top" row="15" items="{{ formatted_display }}" class="list-group">
             </ListView>
             <!--<ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">
 				<ListView.itemTemplate>

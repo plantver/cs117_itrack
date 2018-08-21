@@ -15,7 +15,7 @@ function BrowseViewModel() {
         formatted_display: []
     });
 
-    viewModel.set("formatted_display", new ObservableArray (["Date  -  Room"]));
+    viewModel.set("formatted_display", new ObservableArray ([]));
     //viewModel.measures = new ObservableArray([]);
     //viewModel.roomNames = new ObservableArray([]);
     return viewModel;

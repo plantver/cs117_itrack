@@ -86,6 +86,7 @@ function onUploadTap(args)
     });
     page.bindingContext.measures = [];
     page.bindingContext.roomNames = [];
+    page.bindingContext.formatted_display.splice(0);
 }
 
 function onReturnPress(args)
