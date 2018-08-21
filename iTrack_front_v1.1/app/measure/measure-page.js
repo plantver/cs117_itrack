@@ -2,7 +2,7 @@ const app = require("application");
 const httpModule = require("http");
 const BrowseViewModel = require("./measure-view-model");
 //const ActivityIndicator = require("tns-core-modules/ui/activity-indicator").ActivityIndicator;
-const Observable = require("tns-core-modules/data/observable").Observable;//new Observable();
+//const Observable = require("tns-core-modules/data/observable").Observable;//new Observable();
 
 var vm = new BrowseViewModel();
 var page = null;

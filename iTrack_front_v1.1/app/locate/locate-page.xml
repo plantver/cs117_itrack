@@ -22,7 +22,8 @@
         <Label class="action-bar-title" text="Locate"></Label>
     </ActionBar>
     <DockLayout class="page-content" width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
-        <Label dock="top" class="page-icon fa" text="&#xf015;"></Label>
+        <!--<Label dock="top" class="page-icon fa" text="&#xf015;"></Label>-->
+        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
         <Button dock="top" text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
         <ListView dock="top" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
     </DockLayout>

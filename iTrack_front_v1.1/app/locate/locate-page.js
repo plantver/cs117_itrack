@@ -1,14 +1,18 @@
 const app = require("application");
 const httpModule = require("http");
 const HomeViewModel = require("./locate-view-model");
+//const Observable = require("tns-core-modules/data/observable").Observable;//new Observable();
 
+var vm = new HomeViewModel();
 var context = android.content.Context;
 var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
 wifi_service.setWifiEnabled(true);
 
 function onNavigatingTo(args) {
+    
     const page = args.object;
-
+    
+    vm.set("isLoading",true);
     var hasPermission = android.os.Build.VERSION.SDK_INT < 23;
     console.log("hasPermission: ", hasPermission);
     if (!hasPermission) {
@@ -57,10 +61,10 @@ function onNavigatingTo(args) {
                         });
                     }
                 }, (e) => {console.log(e);});
+                vm.set("isLoading",false);
             });
-
-
-    page.bindingContext = new HomeViewModel();
+    vm.set("isLoading",false);
+    page.bindingContext = vm;// new HomeViewModel();
 }
 
 function onDrawerButtonTap(args) {
@@ -69,6 +73,7 @@ function onDrawerButtonTap(args) {
 }
 
 function onLocateTap(args) {
+    vm.set("isLoading",true);
     const button = args.object;
     var rs = wifi_service.startScan();
     console.log("tap");

@@ -34,7 +34,7 @@
                 </FormattedString>
             </TextView>
             
-            <ActivityIndicator dock="top" busy="{{ isLoading }}" width="70" height="70" />
+            <ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
             
             <ListView dock="top" row="15" items="{{ formatted_display }}" class="list-group">
             </ListView>
