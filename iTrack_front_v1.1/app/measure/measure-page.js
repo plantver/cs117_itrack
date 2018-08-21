@@ -1,10 +1,13 @@
 const app = require("application");
 const httpModule = require("http");
 const BrowseViewModel = require("./measure-view-model");
+const viewModule = require("ui/core/view");
 
 var page = null;
 var context = android.content.Context;
 var wifi_service = app.android.context.getSystemService(context.WIFI_SERVICE);
+
+
 wifi_service.setWifiEnabled(true);
 
 function onNavigatingTo(args) {
@@ -45,10 +48,13 @@ function onNavigatingTo(args) {
                 console.log(res);
                 page.bindingContext.measures.push(res);
                 page.bindingContext.roomNames.push(page.bindingContext.roomName);
+                var time_now = new Date();
+                //console.log(time_now.getMonth() +"/"+time_now.getDate() +"/"+time_now.getFullYear() +"  "+time_now.getHours() + ":"+time_now.getMinutes());
+                var formatted_time = time_now.getMonth() +"/"+time_now.getDate() +"/"+time_now.getFullYear() +"  "+time_now.getHours() + ":"+time_now.getMinutes();
                 page.bindingContext.formatted_display.push(
-                    "datetimeplaceholder  -  " + page.bindingContext.roomName
+                    formatted_time + page.bindingContext.roomName
                 );
-                //listView.refresh(); //how does this even work
+                //args.object.refresh(); //how does this even work
             });
 
     page.bindingContext = new BrowseViewModel();
@@ -95,6 +101,20 @@ function onReturnPress(args)
     page.bindingContext.roomName = args.object.text;
 }
 
+function onBlur(args) {
+    // blur event will be triggered when the user leaves the TextField
+    page.bindingContext.roomName = args.object.text;
+    args.object.dismissSoftInput();
+    console.log("onBlur event");
+}
+
+function onFocus(args) {
+    // focus event will be triggered when the users enters the TextField
+    console.log("onFocus event");
+}
+
+exports.onFocus = onFocus;
+exports.onBlur = onBlur;
 exports.onReturnPress = onReturnPress;
 exports.onMeasureTap = onMeasureTap;
 exports.onUploadTap = onUploadTap;

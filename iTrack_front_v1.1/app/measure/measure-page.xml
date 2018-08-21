@@ -25,7 +25,7 @@
     <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
 			<TextField dock="top" width="95%" text="{{ textRoomName }}" hint="ENTER CURRENT ROOM NAME (ex. BOEL2444) ..." 
                         returnKeyType="Done" returnPress="onReturnPress"
-                        class="input input-border"/>
+                        blur="onBlur" focus="onFocus" class="input input-border"/>
             
             <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
             <TextView dock="top" editable="false">

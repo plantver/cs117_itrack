@@ -21,10 +21,14 @@
         </ActionItem>
         <Label class="action-bar-title" text="Locate"></Label>
     </ActionBar>
-
-    <StackLayout class="page-content">
-        <Label class="page-icon fa" text="&#xf015;"></Label>
+    <DockLayout class="page-content" width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
+        <Label dock="top" class="page-icon fa" text="&#xf015;"></Label>
+        <Button dock="top" text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
+        <ListView dock="top" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
+    </DockLayout>
+    <!--<StackLayout class="page-content">
+        <Label verticalAlignment="center" class="page-icon fa" text="&#xf015;"></Label>
         <Button text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
         <ListView row="4" items="{{ formatted_display }}" class="list-group" />
-    </StackLayout>
+    </StackLayout>-->
 </Page>
