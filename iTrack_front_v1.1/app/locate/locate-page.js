@@ -52,11 +52,13 @@ function onNavigatingTo(args) {
                     num_top_networks=res.length;
                 }
                 var temp_array=[];
+                var max_sig_pow = Math.pow(10,res[0].RSSI/10);
+                console.log(max_sig_pow);
                 for(var j=0;j<num_top_networks;j++)
                 {
                     formatted_network={
                         "ID": res[j].SSID.toString(),// + "\r\n" + res[j].BSSID.toString(),
-                        "SIG_STRENGTH": 2*(res[j].RSSI + 100)
+                        "SIG_STRENGTH": 100*Math.pow(10,res[j].RSSI/10)/max_sig_pow
                     };
                     console.log(formatted_network.ID);
                     temp_array.push(formatted_network);//res[j]);
