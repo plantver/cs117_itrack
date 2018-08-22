@@ -44,6 +44,27 @@ function onNavigatingTo(args) {
                     res.push(info);
                 }
                 console.log(res);
+
+                //barchart formatting
+                var num_top_networks=4;
+                if(res.length < 4)
+                {
+                    num_top_networks=res.length;
+                }
+                var temp_array=[];
+                for(var j=0;j<num_top_networks;j++)
+                {
+                    formatted_network={
+                        "ID": res[j].SSID.toString(),// + "\r\n" + res[j].BSSID.toString(),
+                        "SIG_STRENGTH": 2*(res[j].RSSI + 100)
+                    };
+                    console.log(formatted_network.ID);
+                    temp_array.push(formatted_network);//res[j]);
+                }
+                console.log(temp_array);
+                vm.set("top_networks",temp_array);
+                //end barchart formatting
+
                 httpModule.request({
                     url: 'http://13.57.182.179:5001/locate_top4',
                     method: 'POST',
@@ -54,6 +75,7 @@ function onNavigatingTo(args) {
                     var res = response.content;
                     if (response.statusCode == 200){
                         page.bindingContext.loc = res.toJSON();
+                        
                         page.bindingContext.formatted_display.splice(0);
                         res.toJSON().forEach((e) => {
                             page.bindingContext.formatted_display.push(

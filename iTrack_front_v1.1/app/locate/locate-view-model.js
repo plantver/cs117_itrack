@@ -10,11 +10,12 @@ function HomeViewModel() {
         /* Add your view model properties here */
         loc: [],
         formatted_display: [],
+        top_networks: [],
         isLoading: false
     });
 
     viewModel.set("formatted_display", new ObservableArray ([]));
-
+    viewModel.set("top_networks", new ObservableArray([]));
     return viewModel;
 }
 

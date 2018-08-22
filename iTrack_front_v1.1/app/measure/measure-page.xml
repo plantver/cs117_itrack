@@ -23,19 +23,19 @@
     </ActionBar>
 
     <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
-			<TextField dock="top" width="95%" text="{{ textRoomName }}" hint="ENTER CURRENT ROOM NAME (ex. BOEL2444) ..." 
+			<ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
+            <TextField dock="top" width="95%" text="{{ textRoomName }}" hint="ENTER CURRENT ROOM NAME (ex. BOEL2444) ..." 
                         returnKeyType="Done" returnPress="onReturnPress"
                         blur="onBlur" focus="onFocus" class="input input-border"/>
             <Button dock="top" width="60%" text="Measure" tap="onMeasureTap" class="btn btn-primary btn-active" />
+            
             <TextView dock="top" editable="false">
                 <FormattedString>
                     <Span text="Now set to measure for: " />
                     <Span text="{{ roomName }}" fontWeight="Bold" />
                 </FormattedString>
             </TextView>
-            
-            <ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
-            
+                        
             <ListView dock="top" row="15" items="{{ formatted_display }}" class="list-group">
             </ListView>
             <!--<ListView dock="top" class="list-group" items="{{ measurements }}" style="height:1000px">

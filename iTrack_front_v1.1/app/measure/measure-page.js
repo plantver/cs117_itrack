@@ -41,6 +41,7 @@ function onNavigatingTo(args) {
             function onReceiveCallback(context, intent) {    
                 let tp = java.util.List;
                 tp = wifi_service.getScanResults();
+                console.log(tp);
                 tp = tp.toArray();
                 var res = [];
                 for (var i = 0; i < tp.length; i++){

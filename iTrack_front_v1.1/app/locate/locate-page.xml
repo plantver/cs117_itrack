@@ -1,7 +1,8 @@
 <Page
     class="page"
     navigatingTo="onNavigatingTo"  
-    xmlns="http://schemas.nativescript.org/tns.xsd">
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:chart="nativescript-ui-chart">
 
     <ActionBar class="action-bar">
         <!-- 
@@ -21,11 +22,29 @@
         </ActionItem>
         <Label class="action-bar-title" text="Locate"></Label>
     </ActionBar>
-    <DockLayout class="page-content" width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
+    <DockLayout class="page-content" width="100%" height="85%" backgroundColor="white" stretchLastChild="false">
         <!--<Label dock="top" class="page-icon fa" text="&#xf015;"></Label>-->
-        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
+        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="60" height="60" />
         <Button dock="top" text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
-        <ListView dock="top" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
+        <ListView dock="top" width="80%" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
+        <chart:RadCartesianChart dock="bottom" class="m-b-15" height="400">
+        <chart:RadCartesianChart.series>
+        <chart:BarSeries
+            items="{{ top_networks }}"
+            categoryProperty="ID"
+            valueProperty="SIG_STRENGTH"
+            showLabels="true">
+            <chart:BarSeries.horizontalAxis>
+                <!-- <chart:LinearAxis labelFitMode="Rotate"/> -->
+                <chart:CategoricalAxis /> <!-- labelFitMode="Multiline"/> -->
+            </chart:BarSeries.horizontalAxis>
+            <chart:BarSeries.verticalAxis>
+                <!-- <chart:CategoricalAxis labelFitMode="Multiline" /> -->
+                <chart:LinearAxis minimum="0" maximum="100"/> <!-- labelFitMode="Rotate" /> -->
+            </chart:BarSeries.verticalAxis>
+        </chart:BarSeries>
+        </chart:RadCartesianChart.series>
+        </chart:RadCartesianChart>
     </DockLayout>
     <!--<StackLayout class="page-content">
         <Label verticalAlignment="center" class="page-icon fa" text="&#xf015;"></Label>
