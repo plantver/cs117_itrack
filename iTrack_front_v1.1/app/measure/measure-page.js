@@ -121,7 +121,13 @@ function onFocus(args) {
     // focus event will be triggered when the users enters the TextField
     console.log("onFocus event");
 }
-
+function onDeleteLastTap(args){
+    console.log("Delete Last event");
+    page.bindingContext.measures.pop();
+    page.bindingContext.roomNames.pop();
+    page.bindingContext.formatted_display.pop();
+}
+exports.onDeleteLastTap = onDeleteLastTap;
 exports.onFocus = onFocus;
 exports.onBlur = onBlur;
 exports.onReturnPress = onReturnPress;

@@ -23,7 +23,7 @@
     </ActionBar>
 
     <DockLayout width="90%" height="85%" backgroundColor="white" stretchLastChild="false">
-			<ActivityIndicator dock="top" busy="{{ isLoading }}" width="75" height="75" />
+			<ActivityIndicator dock="top" busy="{{ isLoading }}" width="45" height="45" />
             <TextField dock="top" width="95%" text="{{ textRoomName }}" hint="ENTER CURRENT ROOM NAME (ex. BOEL2444) ..." 
                         returnKeyType="Done" returnPress="onReturnPress"
                         blur="onBlur" focus="onFocus" class="input input-border"/>
@@ -47,5 +47,6 @@
 				</ListView.itemTemplate>
 			</ListView>-->
             <Button dock="bottom" width="60%" text="Upload" tap="onUploadTap" class="btn btn-primary btn-active" />
+            <Button dock="bottom" width="60%" text="Delete Last Record" tap="onDeleteLastTap" class="btn btn-primary btn-active" />
 		</DockLayout>
 </Page>
