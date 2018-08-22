@@ -24,7 +24,7 @@
     </ActionBar>
     <DockLayout class="page-content" width="100%" height="85%" backgroundColor="white" stretchLastChild="false">
         <!--<Label dock="top" class="page-icon fa" text="&#xf015;"></Label>-->
-        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="60" height="60" />
+        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="45" height="45" />
         <Button dock="top" text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
         <ListView dock="top" width="80%" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
         <!-- <Label dock="left" rotate="90" text="Signal Strength (%)"/> -->

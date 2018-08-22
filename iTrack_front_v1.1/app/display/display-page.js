@@ -46,7 +46,6 @@ function onNavigatingTo(args) {
                 let tp = java.util.List;
                 tp = wifi_service.getScanResults();
                 tp = tp.toArray();
-                console.log(tp);
                 var num_top_networks=4;
                 if(tp.length < 4)
                 {
@@ -54,8 +53,15 @@ function onNavigatingTo(args) {
                 }
                 //var top_four = [];
                 var curr_network=0;
-                for (var i = 0; i < num_top_networks; i++){
-                    var e = tp[i];
+                var e = tp[0];
+                console.log(e);
+                var max_sig_pow = Math.pow(10,(e.level)/10);
+                console.log("max power: ", max_sig_pow);
+                console.log("formatted_freq length: ", formatted_frequencies.length);
+                for (var i = 0; i < num_top_networks; i++)
+                {
+                    console.log("current network: ",curr_network);
+                    e = tp[i];
                     if(e.frequency>5000){
                         num_top_networks++;
                         console.log("read freq: ",e.frequency);
@@ -64,29 +70,32 @@ function onNavigatingTo(args) {
                         var arr_pos = Math.round((e.frequency-2408)/2);
                         console.log("read freq: ",e.frequency);
                         console.log("array position: ",arr_pos);
+                        var sig_str = 100*Math.pow(10,e.level/10)/max_sig_pow;
+                        sig_str =(sig_str.toFixed(2))/10*10;
+                        var net_name = e.SSID;
                         switch(curr_network){
                             case 0:
-                                formatted_frequencies[arr_pos-1].signal_strength_0=2*(e.level+100);
-                                formatted_frequencies[arr_pos].signal_strength_0=2*(e.level+100);
-                                formatted_frequencies[arr_pos+1].signal_strength_0=2*(e.level+100);
+                                formatted_frequencies[arr_pos-1].signal_strength_0=sig_str;
+                                formatted_frequencies[arr_pos].signal_strength_0=sig_str;
+                                formatted_frequencies[arr_pos+1].signal_strength_0=sig_str;
                                 vm.set("top0_network", e.SSID.toString());
                             break;
                             case 1:
-                                formatted_frequencies[arr_pos-1].signal_strength_1=2*(e.level+100);
-                                formatted_frequencies[arr_pos].signal_strength_1=2*(e.level+100);
-                                formatted_frequencies[arr_pos+1].signal_strength_1=2*(e.level+100);
+                                formatted_frequencies[arr_pos-1].signal_strength_1=sig_str;
+                                formatted_frequencies[arr_pos].signal_strength_1=sig_str;
+                                formatted_frequencies[arr_pos+1].signal_strength_1=sig_str;
                                 vm.set("top1_network", e.SSID.toString());
                             break;
                             case 2:
-                                formatted_frequencies[arr_pos-1].signal_strength_2=2*(e.level+100);
-                                formatted_frequencies[arr_pos].signal_strength_2=2*(e.level+100);
-                                formatted_frequencies[arr_pos+1].signal_strength_2=2*(e.level+100);
+                                formatted_frequencies[arr_pos-1].signal_strength_2=sig_str;
+                                formatted_frequencies[arr_pos].signal_strength_2=sig_str;
+                                formatted_frequencies[arr_pos+1].signal_strength_2=sig_str;
                                 vm.set("top2_network", e.SSID.toString());
                             break;
                             case 3:
-                                formatted_frequencies[arr_pos-1].signal_strength_3=2*(e.level+100);
-                                formatted_frequencies[arr_pos].signal_strength_3=2*(e.level+100);
-                                formatted_frequencies[arr_pos+1].signal_strength_3=2*(e.level+100);
+                                formatted_frequencies[arr_pos-1].signal_strength_3=sig_str;
+                                formatted_frequencies[arr_pos].signal_strength_3=sig_str;
+                                formatted_frequencies[arr_pos+1].signal_strength_3=sig_str;
                                 vm.set("top3_network", e.SSID.toString());
                             break;
                             default:

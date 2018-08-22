@@ -56,11 +56,16 @@ function onNavigatingTo(args) {
                 console.log(max_sig_pow);
                 for(var j=0;j<num_top_networks;j++)
                 {
+                    var sig_str = 100*Math.pow(10,res[j].RSSI/10)/max_sig_pow;
+                    
+                    sig_str = (sig_str.toFixed(2))*10/10;
+                    console.log("to fixed: ", sig_str);
                     formatted_network={
                         "ID": res[j].SSID.toString(),// + "\r\n" + res[j].BSSID.toString(),
-                        "SIG_STRENGTH": 100*Math.pow(10,res[j].RSSI/10)/max_sig_pow
+                        "SIG_STRENGTH": sig_str//*10/10 100*Math.pow(10,res[j].RSSI/10)/max_sig_pow
                     };
                     console.log(formatted_network.ID);
+                    console.log(formatted_network.SIG_STRENGTH);
                     temp_array.push(formatted_network);//res[j]);
                 }
                 console.log(temp_array);

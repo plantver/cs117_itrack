@@ -11,10 +11,10 @@ function DisplayViewModel() {
         isLoading: false,
         network_channels: [],
         //top_four_networks: []
-        top0_network: "",
-        top1_network: "",
-        top2_network: "",
-        top3_network: ""
+        top0_network: "Network 1",
+        top1_network: "Network 2",
+        top2_network: "Network 3",
+        top3_network: "Network 4"
         
         /* Add your view model properties here */
     });
