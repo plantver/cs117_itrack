@@ -1,6 +1,7 @@
 <Page
     navigatingTo="onNavigatingTo"  
-    xmlns="http://schemas.nativescript.org/tns.xsd">
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:chart="nativescript-ui-chart">
 
     <ActionBar class="action-bar">
         <!-- 
@@ -20,9 +21,68 @@
         </ActionItem>
         <Label class="action-bar-title" text="Display"></Label>
     </ActionBar>
-
-    <GridLayout class="page-content">
-        <Label class="page-icon fa" text="&#xf002;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-    </GridLayout>
+    <DockLayout class="page-content" width="100%" height="85%" backgroundColor="white" stretchLastChild="false">
+        <Button dock="bottom" text="Display 2.4GHz Band Channel Info" tap="onDisplayTap" class="btn btn-primary btn-active" />
+        <ActivityIndicator dock="top" busy="{{ isLoading }}" width="60" height="60" />
+        
+        <chart:RadCartesianChart dock="bottom" class="m-b-10" height="500">
+      <chart:RadCartesianChart.series >
+        <chart:AreaSeries
+          legendTitle="0"
+          items="{{ network_channels }}"
+          categoryProperty="frequency"
+          valueProperty="signal_strength_0"
+          stackMode="Stack">
+            <chart:AreaSeries.labelStyle>
+                <chart:PointLabelStyle margin="10" fontStyle="Bold" fillColor="#60B3FC" textSize="10" textColor="White" />
+            </chart:AreaSeries.labelStyle>
+            
+        </chart:AreaSeries>
+        <chart:AreaSeries
+          legendTitle="1"
+          items="{{ network_channels }}"
+          categoryProperty="frequency"
+          valueProperty="signal_strength_1"
+          stackMode="Stack">
+          <chart:AreaSeries.labelStyle>
+               <chart:PointLabelStyle margin="10" fontStyle="Bold" fillColor="#FC6060" textSize="10" textColor="White" />
+           </chart:AreaSeries.labelStyle>
+        </chart:AreaSeries>
+        <chart:AreaSeries
+          legendTitle="2"
+          items="{{ network_channels }}"
+          categoryProperty="frequency"
+          valueProperty="signal_strength_2"
+          stackMode="Stack">
+          <chart:AreaSeries.labelStyle>
+               <chart:PointLabelStyle margin="10" fontStyle="Bold" fillColor="#00cc44" textSize="10" textColor="White" />
+           </chart:AreaSeries.labelStyle>
+          
+        </chart:AreaSeries>
+        <chart:AreaSeries
+          legendTitle="3"
+          items="{{ network_channels }}"
+          categoryProperty="frequency"
+          valueProperty="signal_strength_3"
+          stackMode="Stack">
+          <chart:AreaSeries.labelStyle>
+               <chart:PointLabelStyle margin="10" fontStyle="Bold" fillColor="#ff8c1a" textSize="10" textColor="White" />
+           </chart:AreaSeries.labelStyle>
+        </chart:AreaSeries>
+        
+       
+      </chart:RadCartesianChart.series>
+      <chart:RadCartesianChart.horizontalAxis>
+                <chart:CategoricalAxis labelFitMode="Rotate"/>
+            </chart:RadCartesianChart.horizontalAxis>
+            <chart:RadCartesianChart.verticalAxis>
+                <chart:LinearAxis labelLayoutMode="Outer" minimum="0" maximum="100"/>
+            </chart:RadCartesianChart.verticalAxis>
+      <chart:RadCartesianChart.legend>
+        <chart:RadLegendView position="Top" title="Series" height="150" enableSelection="true"/>
+      </chart:RadCartesianChart.legend>
+    </chart:RadCartesianChart>
+    <Label dock="bottom" width="47%" text="2.4GHz Band Network Channels"/>
+    </DockLayout>
 </Page>
+ 

@@ -27,7 +27,9 @@
         <ActivityIndicator dock="top" busy="{{ isLoading }}" width="60" height="60" />
         <Button dock="top" text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
         <ListView dock="top" width="80%" row="4" vertical-align="middle" items="{{ formatted_display }}" class="list-group" />
-        <chart:RadCartesianChart dock="bottom" class="m-b-15" height="400">
+        <!-- <Label dock="left" rotate="90" text="Signal Strength (%)"/> -->
+        <Label dock="bottom" width="25%" text="Network SSID"/>
+        <chart:RadCartesianChart dock="bottom" class="m-b-5" height="400">
         <chart:RadCartesianChart.series>
         <chart:BarSeries
             items="{{ top_networks }}"
@@ -36,7 +38,7 @@
             showLabels="true">
             <chart:BarSeries.horizontalAxis>
                 <!-- <chart:LinearAxis labelFitMode="Rotate"/> -->
-                <chart:CategoricalAxis /> <!-- labelFitMode="Multiline"/> -->
+                <chart:CategoricalAxis /><!-- textWrap="true" textWrap:true labelMargin="20" labelFitMode="Multiline"/> -->
             </chart:BarSeries.horizontalAxis>
             <chart:BarSeries.verticalAxis>
                 <!-- <chart:CategoricalAxis labelFitMode="Multiline" /> -->
@@ -45,10 +47,6 @@
         </chart:BarSeries>
         </chart:RadCartesianChart.series>
         </chart:RadCartesianChart>
+        <Label dock="bottom" width="47%" text="Signal Strength (%) of Top Networks"/>
     </DockLayout>
-    <!--<StackLayout class="page-content">
-        <Label verticalAlignment="center" class="page-icon fa" text="&#xf015;"></Label>
-        <Button text="Locate" tap="onLocateTap" class="btn btn-primary btn-active" />
-        <ListView row="4" items="{{ formatted_display }}" class="list-group" />
-    </StackLayout>-->
 </Page>
