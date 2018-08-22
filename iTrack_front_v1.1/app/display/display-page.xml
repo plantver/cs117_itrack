@@ -78,9 +78,10 @@
                 <chart:LinearAxis labelLayoutMode="Outer" minimum="0" maximum="100"/>
             </chart:RadCartesianChart.verticalAxis>
       <chart:RadCartesianChart.legend>
-        <chart:RadLegendView position="Top"  height="120" enableSelection="true"/>
+        <chart:RadLegendView position="Top"  height="110" enableSelection="true"/>
       </chart:RadCartesianChart.legend>
     </chart:RadCartesianChart>
+    <Label dock="bottom" width="46%" text="(Relative Signal Strength %)"/>
     <Label dock="bottom" width="47%" text="2.4GHz Band Network Channels"/>
     </DockLayout>
 </Page>

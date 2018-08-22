@@ -70,9 +70,10 @@ function onNavigatingTo(args) {
                         var arr_pos = Math.round((e.frequency-2408)/2);
                         console.log("read freq: ",e.frequency);
                         console.log("array position: ",arr_pos);
+                        //var sig_str = 2*(100+e.level);
                         var sig_str = 100*Math.pow(10,e.level/10)/max_sig_pow;
                         sig_str =(sig_str.toFixed(2))*1;///10*10;
-                        var net_name = e.SSID;
+                        
                         switch(curr_network){
                             case 0:
                                 formatted_frequencies[arr_pos-1].signal_strength_0=sig_str;
