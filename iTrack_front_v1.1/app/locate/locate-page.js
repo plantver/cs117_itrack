@@ -58,7 +58,7 @@ function onNavigatingTo(args) {
                 {
                     var sig_str = 100*Math.pow(10,res[j].RSSI/10)/max_sig_pow;
                     
-                    sig_str = (sig_str.toFixed(2))*10/10;
+                    sig_str = (sig_str.toFixed(2))*1;//*10/10;
                     console.log("to fixed: ", sig_str);
                     formatted_network={
                         "ID": res[j].SSID.toString(),// + "\r\n" + res[j].BSSID.toString(),

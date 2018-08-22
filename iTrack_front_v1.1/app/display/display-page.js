@@ -71,7 +71,7 @@ function onNavigatingTo(args) {
                         console.log("read freq: ",e.frequency);
                         console.log("array position: ",arr_pos);
                         var sig_str = 100*Math.pow(10,e.level/10)/max_sig_pow;
-                        sig_str =(sig_str.toFixed(2))/10*10;
+                        sig_str =(sig_str.toFixed(2))*1;///10*10;
                         var net_name = e.SSID;
                         switch(curr_network){
                             case 0:
